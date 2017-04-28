@@ -4,6 +4,7 @@ require_relative 'models/weather.rb'
 require 'uri'
 
 ConfigEnv.init("#{__dir__}/config/env.rb")
+REDIS = Redis.new(url: "redis://redistogo:4f79128f324402f8df4eb81752cea902@barreleye.redistogo.com:11135/")
 
 set :port, 4949
 

@@ -7,13 +7,12 @@ class Weather
   end
 
   def weather_data
-    redis = Redis.new(url: "redis://redistogo:4f79128f324402f8df4eb81752cea902@barreleye.redistogo.com:11135/")
-    if ! redis.get(@city).nil?
-      return JSON.parse(redis.get(@city))
+    if ! REDIS.get(@city).nil?
+      return JSON.parse(REDIS.get(@city))
     else
       resp = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{URI.escape(@city)}&APPID=#{ENV['API_KEY']}")
-      redis.set(@city, resp.body)
-      redis.expire @city, 300 # seconds = 5 minutes.
+      REDIS.set(@city, resp.body)
+      REDIS.expire @city, 300 # seconds = 5 minutes.
 
       JSON.parse(resp.body)
     end
