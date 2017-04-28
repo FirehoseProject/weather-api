@@ -1,0 +1,11 @@
+<h1>Sup, Boss?</h1>
+<h2>Here's the weather!</h2>
+<%= @temp %>
+<% @icons.each do |icon| %>
+    <img src="<%= icon %>" alt="weather icon" />
+<% end %>
+<% @cities.each do |city| %>
+    <a href="/?city=<%= URI.escape(city) %>">
+        <%= city %>
+    </a>
+<% end %>
