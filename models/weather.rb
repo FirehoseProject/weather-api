@@ -19,12 +19,12 @@ class Weather
   end
 
   def icons
-		data = weather_data
-		return [] if data.nil? || data['weather'].nil?
-		data['weather'].collect do |weather|
-			weather['icon'] + ".png"
-		end.uniq
-	end
+    data = weather_data
+    return [] if data.nil? || data['weather'].nil?
+    data['weather'].collect do |weather|
+      weather['icon'] + ".png"
+    end.uniq
+  end
 
 
   def temp
