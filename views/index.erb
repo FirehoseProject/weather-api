@@ -1,33 +1,24 @@
 <html>
-<body class="Site">
-
-<link href="https://fonts.googleapis.com/css?family=Oswald|Playfair+Display" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-<link href="/style.css" rel="stylesheet" />
-
-  <main class="Site-content">
-
-<h2 class="text-center">The weather right now in <%= @city %></h2>
-<h1 class="text-center"><%= @temp.to_i %>&deg;</h1>
-<% @icons.each do |icon| %>
-	<div class="text-center">
-	    <img src="<%= icon %>" alt="weather icon" style="width: 200px"/>
-    </div>
-<% end %>
-
-</main>
-
-
-  <footer class="text-center">
+<head>
+  <link href="/style.css" rel="stylesheet" />
+</head>
+<body>
+  <main>
+    <h2>The weather right now in <%= @city %></h2>
+    <h1><%= @temp.to_i %>&deg;</h1>
+    <% @icons.each do |icon| %>
+    	<img src="<%= icon %>" alt="weather icon"/>
+    <% end %>
+  </main>
+  <footer>
   	<ul>
-<% @cities.each do |city| %>
-    <li><a href="/?city=<%= URI.escape(city) %>"><%= city %></a></li>
-<% end %>
-</ul>
-<br />
-Built with ❤️&nbsp; by <a href="http://github.com/kenmazaika">Ken Mazaika</a> in San Francisco.  Icons by <a href="flaticon.com">flaticon</a>.
-
+      <% @cities.each do |city| %>
+          <li><a href="/?city=<%= URI.escape(city) %>"><%= city %></a></li>
+      <% end %>
+    </ul>
+    <p>
+      Built with ❤️&nbsp; by <a href="http://github.com/kenmazaika">Ken Mazaika</a> in San Francisco.  Icons by <a href="flaticon.com">flaticon</a>.
+    </p>
   </footer>
 </body>
 </html>
