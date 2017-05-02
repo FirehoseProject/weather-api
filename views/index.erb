@@ -1,11 +1,33 @@
-<h1>Sup, Boss?</h1>
-<h2>Here's the weather!</h2>
-<%= @temp %>
+<html>
+<body class="Site">
+
+<link href="https://fonts.googleapis.com/css?family=Oswald|Playfair+Display" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+<link href="/style.css" rel="stylesheet" />
+
+  <main class="Site-content">
+
+<h2 class="text-center">The weather right now in <%= @city %></h2>
+<h1 class="text-center"><%= @temp.to_i %>&deg;</h1>
 <% @icons.each do |icon| %>
-    <img src="<%= icon %>" alt="weather icon" />
+	<div class="text-center">
+	    <img src="<%= icon %>" alt="weather icon" style="width: 200px"/>
+    </div>
 <% end %>
+
+</main>
+
+
+  <footer class="text-center">
+  	<ul>
 <% @cities.each do |city| %>
-    <a href="/?city=<%= URI.escape(city) %>">
-        <%= city %>
-    </a>
+    <li><a href="/?city=<%= URI.escape(city) %>"><%= city %></a></li>
 <% end %>
+</ul>
+<br />
+Built with ❤️&nbsp; by <a href="http://github.com/kenmazaika">Ken Mazaika</a> in San Francisco.  Icons by <a href="flaticon.com">flaticon</a>.
+
+  </footer>
+</body>
+</html>
