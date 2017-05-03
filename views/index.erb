@@ -6,9 +6,11 @@
   <main>
     <h2>The weather right now in <%= @city %></h2>
     <h1><%= @temp.to_i %>&deg;</h1>
-    <% @icons.each do |icon| %>
-    	<img src="<%= icon %>" alt="weather icon"/>
-    <% end %>
+    <div>
+      <% @icons.each do |icon| %>
+        <img src="<%= icon %>" alt="weather icon"/>
+      <% end %>
+    </div>
   </main>
   <footer>
   	<ul>
