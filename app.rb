@@ -34,6 +34,8 @@ get '/weather' do
     city: weather.city,
     note: "Icons Courtesy of FlatIcon.com"
   }
+    response.headers['Access-Control-Allow-Origin'] = '*'
+
   json data
 
 end
