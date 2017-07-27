@@ -2,6 +2,7 @@ require 'httparty'
 require 'uri'
 require 'redis'
 class Weather
+  attr_accessor :city
   def initialize(city)
     @city = city
   end
@@ -22,7 +23,7 @@ class Weather
     data = weather_data
     return [] if data.nil? || data['weather'].nil?
     data['weather'].collect do |weather|
-      weather['icon'] + ".png"
+      ENV['HOST'] + weather['icon'] + ".png"
     end.uniq
   end
 

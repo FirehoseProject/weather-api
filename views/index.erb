@@ -4,21 +4,10 @@
 </head>
 <body>
   <main>
-    <h2>The weather right now in <%= @city %></h2>
-    <h1><%= @temp.to_i %>&deg;</h1>
-    <div>
-      <% @icons.each do |icon| %>
-        <img src="<%= icon %>" alt="weather icon"/>
-      <% end %>
-    </div>
-  </main>
-  <footer>
-  	<ul>
-      <% @cities.each do |city| %>
-          <li><a href="/?city=<%= URI.escape(city) %>"><%= city %></a></li>
-      <% end %>
-    </ul>
-    <p>
+  <p>
+Todo: document the restful API.
+</p>
+   <p>
       Built with <heart>❤️</heart>&nbsp; by <a href="http://github.com/kenmazaika">Ken Mazaika</a> in San Francisco.  Icons by <a href="flaticon.com">flaticon</a>.
     </p>
   </footer>
