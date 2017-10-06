@@ -1,15 +1,737 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+
 <head>
-  <link href="/style.css" rel="stylesheet" />
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0066/9749.js" async="async"></script>
+
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://blog.thefirehoseproject.com/posts/xmlrpc.php">
+
+<title>Weather API Documentation - Firehose</title>
+<script type="text/javascript">function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'http://blog.thefirehoseproject.com/posts/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'http://blog.thefirehoseproject.com/posts/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'http://blog.thefirehoseproject.com/posts/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = 12; var heateorSssMobileStickySharingEnabled = 0;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")}</script>			<style type="text/css">
+					.heateor_sss_horizontal_sharing .heateorSssSharing{
+							color: #fff;
+						border-width: 0px;
+			border-style: solid;
+			border-color: transparent;
+		}
+				.heateor_sss_horizontal_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+				.heateor_sss_horizontal_sharing .heateorSssSharing:hover{
+						border-color: transparent;
+		}
+		.heateor_sss_vertical_sharing .heateorSssSharing{
+							background-color: #0E30D6;
+							color: white;
+						border-width: 0px;
+			border-style: solid;
+			border-color: transparent;
+		}
+				.heateor_sss_vertical_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+				.heateor_sss_vertical_sharing .heateorSssSharing:hover{
+							background-color: #0E30D6;
+							color: white;
+						border-color: transparent;
+		}
+		@media screen and (max-width:783px) {.heateor_sss_vertical_sharing{display:none!important}}			</style>
+			
+<!-- This site is optimized with the Yoast SEO plugin v5.5.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://blog.thefirehoseproject.com/posts/react-js-101/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Weather API Documentation - Firehose" />
+<meta property="og:description" content="A real-time weather API to give access to current weather conditions in different cities." />
+<meta property="og:url" content="http://blog.thefirehoseproject.com/posts/react-js-101/" />
+<meta property="og:site_name" content="Firehose" />
+<meta property="article:section" content="Industry Knowledge" />
+<meta property="article:published_time" content="2017-10-03T20:53:43+00:00" />
+<meta property="article:modified_time" content="2017-10-06T01:02:05+00:00" />
+<meta property="og:updated_time" content="2017-10-06T01:02:05+00:00" />
+<meta property="og:image" content="http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover.jpg" />
+<meta property="og:image:width" content="2880" />
+<meta property="og:image:height" content="1600" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Integrate with this API to get realtime weather updates for your city!" />
+<meta name="twitter:title" content="React JS 101 - What You Need to Know - Firehose" />
+<meta name="twitter:image" content="http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover.jpg" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"http:\/\/blog.thefirehoseproject.com\/posts\/","name":"Firehose","potentialAction":{"@type":"SearchAction","target":"http:\/\/blog.thefirehoseproject.com\/posts\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//maps.google.com' />
+<link rel='dns-prefetch' href='//netdna.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Firehose &raquo; Feed" href="http://blog.thefirehoseproject.com/posts/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Firehose &raquo; Comments Feed" href="http://blog.thefirehoseproject.com/posts/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Firehose &raquo; React JS 101 &#8211; What You Need to Know Comments Feed" href="http://blog.thefirehoseproject.com/posts/react-js-101/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/blog.thefirehoseproject.com\/posts\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='rp-public-styles-css'  href='http://blog.thefirehoseproject.com/posts/wp-content/plugins/reading-progress-bar/public/css/rp-public.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='tk-shortcodes-fap-css'  href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tk-shortcodes-css'  href='http://blog.thefirehoseproject.com/posts/wp-content/plugins/tk-shortcodes/public/css/tk-shortcodes-public.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='http://blog.thefirehoseproject.com/posts/wp-includes/css/dashicons.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='thickbox-css'  href='http://blog.thefirehoseproject.com/posts/wp-includes/js/thickbox/thickbox.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='ippo-style-css'  href='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/style.css?ver=4.8.2' type='text/css' media='all' />
+<style id='ippo-style-inline-css' type='text/css'>
+/* Body BG color */
+
+	body {
+		background-color: #fff;
+	}
+
+
+	/* Headings color */
+
+	h1, h2, h3, h4, h5, h6,
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+	h2.widget-title,
+	.entry-content h1,
+	.entry-content h2,
+	.entry-content h3,
+	.entry-content h4,
+	.entry-content h5,
+	.entry-content h6,
+	.nav-links,
+	.format-quote blockquote,
+	.emphasis,
+	.entry-content .emphasis,
+	.single .entry-content .emphasis,
+	.single .format-quote blockquote,
+	.single .format-quote q,
+	.single .format-link .entry-content p,
+	.masonry .format-link .entry-content h2,
+	.single .format-link .entry-content h2,
+	.entry-content blockquote,
+	.entry-content blockquote p,
+	.comment-content blockquote p,
+	.single .entry-content blockquote p,
+	.archive .page-title span,
+	.search .page-title span,
+	.error404 .page-title span,
+	.widget-title,
+	.widget .widget-title a,
+	.widget_calendar caption,
+	.widget_calendar th {
+		color: #000;
+	}
+
+
+	/* Paragraph color */
+
+	.entry-content p,
+	.entry-footer,
+	.single .format-quote blockquote cite,
+	.single .format-quote blockquote + cite,
+	.single .format-quote q cite,
+	.single .format-quote q + cite,
+	.single .format-quote blockquote + p cite,
+	.single .format-quote q + p cite,
+	.jp-relatedposts-post-context {
+		color: #5d5d5d;
+	}
+
+
+	/* Link color */
+
+	a,
+	.main-navigation a:focus,
+	.dropdown-toggle:focus,
+	#big-search-trigger:focus,
+	.archive .page-title,
+	.search-results .page-title,
+	.post-date a,
+	.read-more-link,
+	.entry-footer a,
+	.comment-metadata a,
+	.logged-in-as,
+	.logged-in-as a,
+	.comment-notes,
+	.bypostauthor > .comment-body .comment-author b:after,
+	.category-filter a,
+	.masonry .format-link .entry-content a,
+	.widget_recent_comments li,
+	.widget_recent_comments .comment-author-link a,
+	.widget_recent_entries li,
+	.rss-date,
+	.rssSummary,
+	.search-post-type,
+	.search-no-results .page-content > p,
+	.error404 .page-content > p,
+	.page-numbers li a,
+	.back-to-top {
+		color: #a3a3a3;
+	}
+
+	.category-filter .cat-active a {
+		color: #5d5d5d;
+	}
+
+	@media only screen and (min-width: 1025px){
+
+		a:hover,
+		.nav-menu > li:hover > a,
+		.nav-menu > li > a:hover + a,
+		div[class^="gr_custom_container"] a:hover,
+		.comment .reply a:hover,
+		.entry-footer a:hover,
+		.category-filter a:hover,
+		.format-link .entry-content a:hover,
+		.back-to-top:hover,
+		.paging-navigation a:hover,
+		.read-more-link:hover,
+		.widget a:hover,
+		.widget .search-form input[type="submit"]:hover,
+		.widget .newsletter input[type="submit"]:hover,
+		.widget.widget_wpcom_social_media_icons_widget a:hover,
+		.instagram-username a:hover,
+		.widget .tp_recent_tweets a:hover,
+		.page-numbers li a:hover  {
+			color: #5d5d5d;
+		}
+
+		h1 a:hover,
+		h2 a:hover,
+		h3 a:hover,
+		h4 a:hover,
+		h5 a:hover,
+		h6 a:hover {
+			color: #747474;
+		}
+
+		#infinite-handle span:hover {
+			background-color: #0e30d6;
+		}
+
+		.entry-meta .category-list a:hover,
+		.posts-navigation .entry-meta a:hover {
+			color: #0e30d6;
+		}
+
+	}
+
+	.entry-meta .category-list a,
+	.posts-navigation .entry-meta a,
+	#infinite-handle .nav-next a,
+	.single .nav-links a {
+		color: #0e30d6;
+	}
+
+	body #infinite-handle span {
+		border-color: #0e30d6;
+	}
+
+
+
+	/* Header color */
+
+	.site-header,
+	.standard-menu .main-navigation ul ul {
+		background-color: #0e30d6;
+	}
+
+	.site-header .nav-menu > li > a,
+	#big-search-trigger,
+	.standard-menu .main-navigation ul ul a,
+	.menu-toggle:before {
+		color: #ffffff;
+	}
+
+	.standard-menu .main-navigation ul ul a:focus,
+	.nav-menu > li > a {
+		color: #fffaef;
+	}
+
+	@media only screen and (min-width: 1025px){
+
+		.site-header .nav-menu li > a:hover,
+		#big-search-trigger:hover,
+		.standard-menu .main-navigation ul ul a:hover {
+			color: #fffaef;
+		}
+
+	}
+
+
+	/* Logo color */
+
+	.site-title a {
+		color: #ffffff;
+	}
+
+	@media only screen and (min-width: 1025px){
+
+		.site-title a:hover {
+			color: #fffaef;
+		}
+
+	}
+
+	.site-description {
+		color: #ffffff;
+	}
+
+
+	/* Fullwidth slider colors */
+	.fullwidth-slider .featured-slider h2 a,
+	.fullwidth-slider .featured-slider .slick-arrow {
+		color: #ffffff;
+	}
+
+	@media only screen and (min-width: 1025px){
+
+		.fullwidth-slider .featured-slider h2 a:hover,
+		.fullwidth-slider .featured-slider .slick-arrow:hover {
+			color: #fffaef;
+		}
+
+		.fullwidth-slider .featured-slider .slider-text .category-list a:hover,
+		.fullwidth-slider .featured-slider .entry-meta .category-list a:hover {
+			color: #0e30d6;
+		}
+
+	}
+
+	.fullwidth-slider .featured-slider .slider-text .category-list a,
+	.fullwidth-slider .featured-slider .entry-meta .category-list a {
+		color: #0e30d6;
+	}
+
+	/* Footer colors */
+
+	.site-footer,
+	.instagram-feed {
+		background-color: #0e30d6;
+	}
+
+	.site-footer,
+	.instagram-feed,
+	.instagram-feed span,
+	.site-footer span,
+	.site-info {
+		color: #ffffff;
+	}
+
+	.site-footer a {
+		color: #ffffff;
+	}
+
+	@media only screen and (min-width: 1025px){
+
+		.site-footer a:hover {
+			color: #fffaef;
+		}
+
+	}
+</style>
+<link rel='stylesheet' id='heateor_sss_frontend_css-css'  href='http://blog.thefirehoseproject.com/posts/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=3.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='heateor_sss_vertical_sharing_svg-css'  href='http://blog.thefirehoseproject.com/posts/wp-content/plugins/sassy-social-share/public/../admin/css/sassy-social-share-default-svg-vertical.css?ver=3.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='heateor_sss_vertical_sharing_svg_hover-css'  href='http://blog.thefirehoseproject.com/posts/wp-content/plugins/sassy-social-share/public/../admin/css/sassy-social-share-hover-svg-vertical.css?ver=3.1.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/plugins/reading-progress-bar/public/js/rp-public.js?ver=4.8.2'></script>
+<script type='text/javascript' src='//maps.google.com/maps/api/js?key&#038;ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/plugins/tk-shortcodes/public/js/tk-shortcodes-public.js?ver=2.0.0'></script>
+<link rel='https://api.w.org/' href='http://blog.thefirehoseproject.com/posts/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.thefirehoseproject.com/posts/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.thefirehoseproject.com/posts/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.2" />
+<link rel='shortlink' href='http://blog.thefirehoseproject.com/posts/?p=4236' />
+<link rel="alternate" type="application/json+oembed" href="http://blog.thefirehoseproject.com/posts/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fblog.thefirehoseproject.com%2Fposts%2Freact-js-101%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://blog.thefirehoseproject.com/posts/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fblog.thefirehoseproject.com%2Fposts%2Freact-js-101%2F&#038;format=xml" />
+		<style type="text/css" id="wp-custom-css">
+			.comments-area:before {
+	height: 0px;
+}
+
+.single .hero {
+	padding-bottom: 50px;
+}
+
+#author {
+	margin-bottom: 30px;
+}
+
+#author img {
+	width: 30px;
+	border-radius: 30px;
+	margin-right: 10px;
+	margin-bottom: -10px;
+}
+
+.read-more-link {
+	font-weight: 700;
+}
+
+.fullwidth-slider .left-txt {
+    text-align: left;
+    left: 10%;
+    right: 10%;
+}
+
+p {
+    letter-spacing: -.1px;
+}
+
+h4 {
+	line-height: 32px;
+}
+
+blockquote p {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.page-title {
+	margin-top: 20px!important;
+	margin-bottom: 20px!important;
+}
+
+.main-container {
+	margin-top: 40px!important;
+}
+
+.featured-slider-wrap .entry-title {
+	text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.featured-slider-wrap .entry-meta {
+	text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sub-menu {
+	z-index: 9999999!important;
+}
+
+.readingProgressbar {
+	z-index: 8999999!important;
+}
+
+#commentform input[type="text"] {
+	color: #333!important;
+	font-size: 16px;
+}		</style>
+	
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-49340848-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-49340848-1');
+</script>
+
+
 </head>
-<body>
-  <main>
-  <p>
-Todo: document the restful API.
+
+<body class="post-template-default single single-post postid-4236 single-format-standard layout-three-columns group-blog standard-menu sticky-header">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	
+	<header id="masthead" class="site-header" role="banner" data-bg-color="#0e30d6">
+
+		<div class="container">
+
+
+			
+			<div class="site-branding">
+
+				
+							<p class="site-title "><a href="http://blog.thefirehoseproject.com/posts/" rel="home">Firehose</a></p>
+		
+			</div><!-- .site-branding -->
+
+
+	</header><!-- #masthead -->
+
+	<!-- Featured posts slider -->
+	
+	
+	<div id="content" class="site-content">
+
+	<!-- Post categories filter -->
+	
+	<div class="container container-medium">
+
+		
+		    	<div class="entry-header">
+		    		<!-- Entry header -->
+		    		<div class="entry-meta"><span class="category-list"><a href="http://blog.thefirehoseproject.com/posts/category/industry-knowledge/" rel="category tag">API Documentation</a></span><span class="post-date">
+		<span class='span-reading-time'> 8 min read</span>
+		</span><span class="edit-link"></span></div><h2 class="entry-title">Firehose Weather API Documentation</h2><div id= "author" class="entry-meta"><span><img alt='' src='http://165.227.200.200/posts/wp-content/uploads/2017/10/avatar_user_3_1506894775-96x96.jpg' srcset='http://165.227.200.200/posts/wp-content/uploads/2017/10/avatar_user_3_1506894775.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' /></span><span class="read-more-link">Ken Mazaika</span></div>	    		</div>
+
+				<div class="hero clear">
+		    		<!-- Featured media -->
+		    		
+			<figure class="featured-image featured-landscape">
+				<img width="1400" height="778" src="http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-1400x778.jpg" class="attachment-ippo-single-featured-image size-ippo-single-featured-image wp-post-image" alt="" srcset="http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-1400x778.jpg 1400w, http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-300x167.jpg 300w, http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-768x427.jpg 768w, http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-1024x569.jpg 1024w, http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-690x383.jpg 690w, http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-1317x732.jpg 1317w, http://blog.thefirehoseproject.com/posts/wp-content/uploads/2017/10/Cover-800x444.jpg 800w" sizes="(max-width: 1400px) 100vw, 1400px" />			</figure>
+
+						</div>
+
+			<div class="row">
+
+				<div id="primary" class="content-area col-sm-12">
+					<main id="main" class="site-main" role="main">
+
+						<div class="container container-small">
+
+							
+<article id="post-4236" class="post-4236 post type-post status-publish format-standard has-post-thumbnail hentry category-industry-knowledge">
+
+	
+	
+		
+		<div class="entry-content">
+		<h4>The Firehose Weather API is an intuitive JSON API that allows web applications access to real-time weather information.</h4>
+
+		<p>
+		This service integrated with <strong><a href="http://openweathermap.org">Open Weather Map</a></strong> to get real-time weather information and has icons courtesy of <a href="http://flaticon.com">Flaticon</a>.  <strong>These icons are available for use for free so long as you attribute the icons to the source.</strong>
+		</p>
+
+<p>
+<strong><code>GET</code></strong> <code>http://weather.thefirehoseproject.com/weather?city=:city_name</code>
 </p>
-   <p>
-      Built with <heart>❤️</heart>&nbsp; by <a href="http://github.com/kenmazaika">Ken Mazaika</a> in San Francisco.  Icons by <a href="flaticon.com">flaticon</a>.
-    </p>
-  </footer>
+<p>
+The <strong><code>:city_name</code></strong> field should be provided to indicate what city you are looking for the weather for.  This should be HTTP escaped, so <code>San Francisco</code> should become <code>San+Francisco</code>.
+</p>
+<p>
+Will produce a JSON representation of the weather in the city queried:
+</p>
+
+<pre><code>{
+  temp: 84.86599999999993,
+  icons: [
+    "http://ken-mazaika-weather.herokuapp.com/01d.png"
+  ],
+  city: "San Francisco",
+  note: "Icons Courtesy of FlatIcon.com"
+}</code></pre>
+
+<p>
+You can use this API to build a real-time weather dashboard.
+</p>
+
+		</div><!-- .entry-content -->
+
+	
+	
+		<footer class="entry-footer">
+			<span class="cat-links">Posted in <a href="http://blog.thefirehoseproject.com/posts/category/industry-knowledge/" rel="category tag">Industry Knowledge</a></span>		</footer><!-- .entry-footer -->
+
+	
+</article><!-- #post-## -->
+
+						</div><!-- .container.container-small -->
+
+							<div class="author">
+											<div class="container container-small">
+				<section class="author-box">
+					<figure class="author-avatar">
+						<img alt='' src='http://165.227.200.200/posts/wp-content/uploads/2017/10/avatar_user_3_1506894775-96x96.jpg' srcset='http://165.227.200.200/posts/wp-content/uploads/2017/10/avatar_user_3_1506894775.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' />					</figure>
+					<div class="author-info">
+						<h6 class="author-name"><span>Author</span>Ken Mazaika</h6><p>Ken Mazaika is the CTO and co-founder at Firehose. Previously, he was a tech lead at WHERE.com (acquired by PayPal) and a member of the PayPal/eBay development team in Boston.</p>					</div>
+				</section>
+			</div>
+
+									</div>
+
+						
+	<nav class="navigation posts-navigation" role="navigation">
+		<h2 class="screen-reader-text">Posts navigation</h2>
+		<div class="nav-links"><span class="prev-trig">Previous article</span><div class="nav-previous"><span>Previous article</span><a href="http://blog.thefirehoseproject.com/posts/how-to-optimize-your-time-developer-job-search/"><span class="entry-meta">Career Advice</span><span class="post-title">How to Optimize Your Time in the Developer Job Search</span></a></div></div>
+	</nav>
+
+
+
+			
+					</main><!-- #main -->
+				</div><!-- #primary -->
+
+				
+			</div><!-- .row -->
+
+		
+	</div><!-- .container.container-medium -->
+
+
+	</div><!-- #content -->
+
+	<div class="instagram-feed clear">
+
+		
+	</div>
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+		<div class="container">
+			<div class="row">
+				
+			<div class="col-lg-4 col-sm-6 widget-area">
+				<section id="text-3" class="widget widget_text"><h2 class="widget-title">The Firehose Project</h2>			<div class="textwidget"><p>Firehose is an immersive 22-week and 44-week online coding bootcamp that gives people the real world experience needed to launch a career in web development.</p>
+</div>
+		</section>			</div>
+
+		
+			<div class="col-lg-4 col-sm-6 widget-area">
+				<section id="nav_menu-3" class="widget widget_nav_menu"><h2 class="widget-title">More about Us</h2><div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-3903" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3903"><a href="http://www.thefirehoseproject.com/get-started">Start Coding for Free</a></li>
+<li id="menu-item-3907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3907"><a href="http://www.thefirehoseproject.com/info-session">Join an Info Session</a></li>
+<li id="menu-item-3902" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3902"><a href="http://www.thefirehoseproject.com/">Programs</a></li>
+<li id="menu-item-3906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3906"><a href="http://www.thefirehoseproject.com/curriculum">Curriculum</a></li>
+<li id="menu-item-3904" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3904"><a href="http://www.thefirehoseproject.com/mentors">Trainers</a></li>
+<li id="menu-item-3905" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3905"><a href="http://www.thefirehoseproject.com/alumni">Graduates</a></li>
+</ul></div></section>			</div>
+
+		
+			<div class="col-lg-4 col-sm-6 widget-area">
+				<section id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">Join Our Mailing List</h2><div class="textwidget custom-html-widget"><script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+
+<div class="newsleter-widget">
+
+	<p>Subscribe to our newsletter and get the latest content about the world of web development.</p>
+
+		<div id="firehoseEmailOptInPromptFooter">
+
+			<form id="firehoseEmailFormOptInFooter">
+				<div class="newsletter">			
+					<input id="firehoseEmailOptInFieldFooter" name="email" type="text" class="ç" onfocus="if(value==defaultValue)value=''" onblur="if(value=='')value=defaultValue" value="Enter your email..."/>
+					<div id="firehoseEmailOptInErrorFooter" style="display:none;" name="hidden_path" class="hidden_path">
+					Error With Email
+					</div>
+					<input type="submit" name="submit" value="Subscribe" class="btn submit-newsletter" alt="Submit"/>
+				</div>
+			</form>
+
+		</div>
+
+			<div id="firehoseEmailOptInSuccessFooter" style="display:none;">
+				<p>Glad to have you with us! You'll hear from us soon. </p>
+			</div>
+
+</div>
+
+<script>
+	addEventListener('DOMContentLoaded', function() {
+		var emailForm = document.getElementById('firehoseEmailFormOptInFooter');
+		emailForm.addEventListener('submit', function(e) {
+			var email = document.getElementById('firehoseEmailOptInFieldFooter');
+			var emailAddress = email.value;
+			console.log(emailAddress);
+			e.preventDefault();
+			var data = {			
+				opt_in: {
+					email: emailAddress
+				}
+			};
+			fetch("http://www.thefirehoseproject.com/api/opt-ins", {
+		      headers: {
+		        'Accept': 'application/json',
+		        'Content-Type': 'application/json'
+		      },
+		      method: 'POST',
+		      body: JSON.stringify(data)
+		    })
+		  .then(function(response) {
+		    return response.json();
+		  })
+		  .then(function(json) {
+		  	console.log(json);
+		  	if(json.errors) {
+			    var errorMsg = document.getElementById("firehoseEmailOptInErrorFooter");
+			    errorMsg.style.display = "block";
+		  	} else {
+			    var errorMsg = document.getElementById("firehoseEmailOptInPromptFooter");
+			    errorMsg.style.display = "none";
+			    var errorMsg = document.getElementById("firehoseEmailOptInSuccessFooter");
+			    errorMsg.style.display = "block";
+			}
+		  })
+		  .catch(function(error) {
+		    var errorMsg = document.getElementById("firehoseEmailOptInErrorFooter");
+		    errorMsg.style.display = "block";
+		  });
+		});
+	});
+</script></div></section>			</div>
+
+					</div>
+
+			<div class="site-info">
+
+				
+					<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+					<span class="sep"> | </span>
+					Theme: Ippo by <a href="http://www.themeskingdom.com" rel="designer">Themes Kingdom</a>.
+				 
+			</div><!-- .site-info -->
+		</div>
+	</footer><!-- #colophon -->
+
+
+</div><!-- #page -->
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var js_contact_vars = {"admin_url":"http:\/\/blog.thefirehoseproject.com\/posts\/wp-admin\/admin-ajax.php","nonce":"8eaa01f1ee","message_info":"Message Sent!","message_sending":"Sending..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/plugins/tk-contact-form/js/script.js?ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/assets/js/navigation.js?ver=20151215'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/assets/js/skip-link-focus-fix.js?ver=20151215'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/assets/js/slick/slick.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/assets/js/spin/spin.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/imagesloaded.min.js?ver=3.2.0'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/masonry.min.js?ver=3.3.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/assets/js/infinite-scroll/infinite-scroll.min.js?ver=4.8.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/blog.thefirehoseproject.com\/posts\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var js_vars = {"url":"http:\/\/blog.thefirehoseproject.com\/posts\/wp-content\/themes\/ippo","admin_url":"http:\/\/blog.thefirehoseproject.com\/posts\/wp-admin\/admin-ajax.php","nonce":"8eaa01f1ee","no_more_text":"No more posts to load.","startPage":"1","maxPages":"0","is_type":"click","paging_type":"standard-paging"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/themes/ippo/assets/js/common.js?ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/comment-reply.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='http://blog.thefirehoseproject.com/posts/wp-content/plugins/akismet/_inc/form.js?ver=3.3.3'></script>
+
+<progress class="readingProgressbar" 
+							data-height="5" 
+							data-position="custom" 
+							data-custom-position=".site-header" 
+							data-foreground="#556bd6" 
+							data-background="#fffaef" 
+							value="0"></progress>
 </body>
 </html>
+
