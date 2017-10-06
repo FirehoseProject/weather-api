@@ -23,7 +23,7 @@ class Weather
     data = weather_data
     return [] if data.nil? || data['weather'].nil?
     data['weather'].collect do |weather|
-      ENV['HOST'] + weather['icon'] + ".png"
+      "http://" + ENV['HOST'] + weather['icon'] + ".png"
     end.uniq
   end
 
